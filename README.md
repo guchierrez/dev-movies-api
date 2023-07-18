@@ -3,7 +3,7 @@
 </h1>
 
 <h1 align="center">
-  FashionStore - API
+  KenzieMovie - API
 </h1>
 
 <p align="center">
@@ -12,59 +12,122 @@
 
 A API tem um total de 13 endpoints, sendo em volta principalmente do usuário (dev) - podendo cadastrar seu perfil, tecnologias que estuda e trabalhos realizados. <br/>
 
-A url base da API é [https://fashion-store-api.onrender.com](https://fashion-store-api.onrender.com/)
+A url base da API é https://kenzie-movie-api.onrender.com/
 
 ## Rotas que não precisam de autenticação
 
 <h2 align ='center'> Listagem de produtos </h2>
 
-Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver os produtos já cadastrados na plataforma, na API podemos acessar a lista dessa forma:
+Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver os filmes já cadastrados na plataforma, na API podemos acessar a lista dessa forma:
 
-`GET /products - FORMATO DA RESPOSTA - STATUS 200`
+`GET /movies - FORMATO DA RESPOSTA - STATUS 200`
+
+```json
+[
+    {
+      "id": 1,
+      "name": "The Random Heros",
+      "type": "ficção",
+      "duration": 120,
+      "synopsis": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1688390764/Rectangle_5_mgqd46.jpg"
+    },
+    {
+      "id": 2,
+      "name": "The Road",
+      "type": "ficção",
+      "duration": 90,
+      "synopsis": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1688390787/Rectangle_1_chtni6.jpg"
+    },
+    {
+      "id": 3,
+      "name": "The City Girls",
+      "type": "comédia",
+      "duration": 84,
+      "synopsis": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1688390817/Rectangle_2_cde9gm.jpg"
+    },
+    {
+      "id": 4,
+      "name": "The Indie Movie",
+      "type": "drama",
+      "duration": 132,
+      "synopsis": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1688390842/Rectangle_3_iwbv86.jpg"
+    }
+  ]
+```
+
+Acessar todos os filmes com as respectivas reviews:
+
+`GET /movies?_embed=reviews - FORMATO DA RESPOSTA - STATUS 200`
 
 ```json
 [
   {
     "id": 1,
-    "name": "Blazer Branco Elegante",
-    "price": 490,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa metus, tempus nec ex ac, condimentum convallis diam. Donec at nisi lorem. Aliquam non dolor bibendum, venenatis ante ac, lobortis justo. Vestibulum nec pretium mi, eu consequat dolor.",
-    "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1687807062/Rectangle_4_hwrkgf.jpg"
+    "name": "The Random Heros",
+    "type": "ficção",
+    "duration": 120,
+    "synopsis": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1688390764/Rectangle_5_mgqd46.jpg",
+    "reviews": [
+      {
+        "id": 1,
+        "movieId": 1,
+        "userId": 1,
+        "score": 8,
+        "description": "Filme muitoooooo bom."
+      },
+      {
+        "id": 2,
+        "movieId": 1,
+        "userId": 5,
+        "score": 8,
+        "description": "Filme massa.",
+      }
+    ]
   },
-  {
-    "id": 2,
-    "name": "Blazer Laranja",
-    "price": 320,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa metus, tempus nec ex ac, condimentum convallis diam. Donec at nisi lorem. Aliquam non dolor bibendum, venenatis ante ac, lobortis justo. Vestibulum nec pretium mi, eu consequat dolor.",
-    "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1687807062/Rectangle_7_ofhcmq.jpg"
-  },
-  {
-    "id": 3,
-    "name": "Sapatos Amarelo",
-    "price": 490,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa metus, tempus nec ex ac, condimentum convallis diam. Donec at nisi lorem. Aliquam non dolor bibendum, venenatis ante ac, lobortis justo. Vestibulum nec pretium mi, eu consequat dolor.",
-    "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1687807062/Rectangle_6_p53ulc.jpg"
-  },
-  {
-    "id": 4,
-    "name": "Calça Preta",
-    "price": 140,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa metus, tempus nec ex ac, condimentum convallis diam. Donec at nisi lorem. Aliquam non dolor bibendum, venenatis ante ac, lobortis justo. Vestibulum nec pretium mi, eu consequat dolor.",
-    "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1687807062/Rectangle_8_ijrp7v.jpg"
-  }
-]
+]  
 ```
 
-Também é possível acessar um produto específico passando o id para rota:
+Também é possível acessar um filme específico com suas respecitvas avaliações passando o id para rota:
 
-`GET /products/:id - FORMATO DA RESPOSTA - STATUS 200`
+`GET /movies/:id?_embed=reviews - FORMATO DA RESPOSTA - STATUS 200`
 ```json
-{
-  "id": 4,
-  "name": "Calça Preta",
-  "price": 140,
-  "description": "https://res.cloudinary.com/dsbkp5841/image/upload/v1687807062/Rectangle_8_ijrp7v.jpg"
+ {
+    "id": 1,
+    "name": "The Random Heros",
+    "type": "ficção",
+    "duration": 120,
+    "synopsis": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1688390764/Rectangle_5_mgqd46.jpg",
+    "reviews": [
+      {
+          "id": 1,
+          "movieId": 1,
+          "userId": 1,
+          "score": 8,
+          "description": "Filme muitoooooo bom."
+      }
+    ]
 }
+```
+
+Também é possível buscar as avaliações de um usuário especifico por filme:
+
+`GET /movies/:idMovie/reviews?userId=:idUser - FORMATO DA RESPOSTA - STATUS 200`
+```json
+[
+  {
+    "id": 1,
+    "movieId": 1,
+    "userId": 1,
+    "score": 8,
+    "description": "Filme muitoooooo bom."
+  }
+]
 ```
 
 <h2 align ='center'> Criação de usuário </h2>
@@ -121,43 +184,69 @@ Caso dê tudo certo, a resposta será assim:
 }
 ```
 
+<h2 align ='center'> Consultar usuários </h2>
+
+`GET /users - FORMATO DA REQUISIÇÃO`
+
+```json
+[
+	{
+		"email": "kenzinho@mail.com",
+		"name": "Kenzinho",
+		"age": 38,
+		"id": 1
+	}
+]
+```
+
+<h2 align ='center'> Consultar um único usuario </h2>
+
+`GET /users/:id - FORMATO DA REQUISIÇÃO`
+
+```json
+{
+  "email": "kenzinho@mail.com",
+  "name": "Kenzinho",
+  "age": 38,
+  "id": 1
+}
+```
+
 ## Rotas que necessitam de autorização
 
 Rotas que necessitam de autorização deve ser informado no cabeçalho da requisição o campo "Authorization", dessa forma:
 
 > Authorization: Bearer {token}
 
+<h2 align ='center'> Criar uma avaliação </h2>
 
-<h2 align ='center'> Cadastrar produto </h2>
-
-`POST /products - FORMATO DA REQUISIÇÃO`
-
-```json
-{
-  "name": "Blazer Branco Elegante",
-  "price": 490,
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa metus, tempus nec ex ac, condimentum convallis diam. Donec at nisi lorem. Aliquam non dolor bibendum, venenatis ante ac, lobortis justo. Vestibulum nec pretium mi, eu consequat dolor.",
-  "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1687807062/Rectangle_4_hwrkgf.jpg"
-}
-```
-
-
-<h2 align ='center'> Atualizar produto </h2>
-
-`PUT /products/:id - FORMATO DA REQUISIÇÃO`
+`POST /reviews - FORMATO DA REQUISIÇÃO`
 
 ```json
 {
-  "name": "Blazer Branco Elegante",
-  "price": 490,
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa metus, tempus nec ex ac, condimentum convallis diam. Donec at nisi lorem. Aliquam non dolor bibendum, venenatis ante ac, lobortis justo. Vestibulum nec pretium mi, eu consequat dolor.",
-  "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1687807062/Rectangle_4_hwrkgf.jpg"
+  "movieId": 1,
+  "userId": 1,
+  "score": 8,
+  "description": "Filme muitoooooo bom."
 }
 ```
 
-Também é possível deletar um produto, utilizando este endpoint:
+<h2 align ='center'> Atualizar uma avaliação </h2>
 
-`DELETE /products/:id`
+`PUT /reviews/:id - FORMATO DA REQUISIÇÃO`
+
+```json
+{
+  "movieId": 1,
+  "userId": 1,
+  "score": 8,
+  "description": "Filme muitoooooo bom."
+}
+```
+
+Também é possível deletar uma avaliação, utilizando este endpoint:
+
+`DELETE /reviews/:id`
 
 ```
 Não é necessário um corpo da requisição.
