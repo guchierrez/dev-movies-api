@@ -3,7 +3,7 @@
 </h1>
 
 <h1 align="center">
-  KenzieMovie - API
+  Dev Movies - API
 </h1>
 
 <p align="center">
