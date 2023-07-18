@@ -12,7 +12,7 @@
 
 A API tem um total de 13 endpoints, sendo em volta principalmente do usuário (dev) - podendo cadastrar seu perfil, tecnologias que estuda e trabalhos realizados. <br/>
 
-A url base da API é https://kenzie-movie-api.onrender.com/
+A url base da API é https://dev-movies-api.onrender.com/
 
 ## Rotas que não precisam de autenticação
 
